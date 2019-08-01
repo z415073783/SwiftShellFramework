@@ -37,10 +37,10 @@ public class YLScript {
 
         let task = Process()
         if !model.isQuiet {
-            YLLOG.info("执行脚本 path = \(model.path)\n arguments = \(model.arguments)")
+            MMLOG.info("执行脚本 path = \(model.path)\n arguments = \(model.arguments)")
         }
 
-        //        YLLOG.info("task.currentDirectoryPath 原始路径 = \(task.currentDirectoryPath)")
+        //        MMLOG.info("task.currentDirectoryPath 原始路径 = \(task.currentDirectoryPath)")
         if let runPath = model.scriptRunPath {
             task.currentDirectoryPath = runPath
         }
@@ -56,7 +56,7 @@ public class YLScript {
         do {
             try task.run()
         } catch {
-            YLLOG.error("error = \(error)")
+            MMLOG.error("error = \(error)")
         }
 //        task.launch()
         task.waitUntilExit()
@@ -67,13 +67,13 @@ public class YLScript {
             let outData = (task.standardOutput as? Pipe)?.fileHandleForReading.readDataToEndOfFile()
             let outPutString = String(data: outData ?? Data(), encoding: .utf8)
             if let _outPutString = outPutString, _outPutString.count > 0 {
-                YLLOG.info(_outPutString)
+                MMLOG.info(_outPutString)
                 result.output = _outPutString
             }
             let errData = (task.standardError as? Pipe)?.fileHandleForReading.readDataToEndOfFile()
             let errString = String(data: errData ?? Data(), encoding: .utf8)
             if let _errString = errString, _errString.count > 0 {
-                YLLOG.error("调试信息: \(_errString)")
+                MMLOG.error("调试信息: \(_errString)")
                 result.error = _errString
             }
         }
@@ -83,8 +83,8 @@ public class YLScript {
             return result
         }
         if !model.isQuiet {
-            YLLOG.info("脚本运行失败! model.path = \(model.path), task.terminationStatus = \(task.terminationStatus)")
-            YLLOG.info("task.currentDirectoryPath路径 = \(task.currentDirectoryPath)")
+            MMLOG.info("脚本运行失败! model.path = \(model.path), task.terminationStatus = \(task.terminationStatus)")
+            MMLOG.info("task.currentDirectoryPath路径 = \(task.currentDirectoryPath)")
         }
         result.status = false
         result.terminationStatus = task.terminationStatus
@@ -93,7 +93,7 @@ public class YLScript {
 
     // 单次执行
     @discardableResult public class func runScript(path: String, arguments: [String] = [], _ showOutData: Bool? = false) -> Bool {
-        YLLOG.info("scrpit: \(path)\nparams:\(arguments)")
+        MMLOG.info("scrpit: \(path)\nparams:\(arguments)")
         let task = Process()
         task.launchPath = path
         task.arguments = arguments
@@ -110,15 +110,15 @@ public class YLScript {
             let outData = (task.standardOutput as? Pipe)?.fileHandleForReading.availableData
             let outPutString = String(data: outData ?? Data(), encoding: .utf8)
             if let _outPutString = outPutString, _outPutString.count > 0 {
-                YLLOG.info(_outPutString)
+                MMLOG.info(_outPutString)
             }
             let errData = (task.standardOutput as? Pipe)?.fileHandleForReading.availableData
             let errString = String(data: errData ?? Data(), encoding: .utf8)
             if let _errString = errString, _errString.count > 0 {
-                YLLOG.error(_errString)
+                MMLOG.error(_errString)
             }
         }
-        YLLOG.info("task.terminationStatus = \(task.terminationStatus)")
+        MMLOG.info("task.terminationStatus = \(task.terminationStatus)")
         if task.terminationStatus == 0 {
             return true
         }

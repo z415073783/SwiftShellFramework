@@ -1,21 +1,21 @@
 //
-//  YLJSON.swift
+//  MMJSON.swift
 //  CallServerSDK
 //
 //  Created by zlm on 2018/7/17.
 //
 /*
  使用范例:
- 声明model: 申明方式和HandyJSON一致,但是继承的类要改为YLJSONCodable
+ 声明model: 申明方式和HandyJSON一致,但是继承的类要改为MMJSONCodable
  // MARK: - 👉 获取自己的ID
 class UserDataMyIDModel: NSObject {
     // 获取自己的ID
     static let interfaceName = "getMyId"
 
-    struct Input: YLJSONCodable {
+    struct Input: MMJSONCodable {
     }
 
-    struct Output: YLJSONCodable {
+    struct Output: MMJSONCodable {
         var id: String = ""
     }
  }
@@ -24,31 +24,31 @@ class UserDataMyIDModel: NSObject {
 
 
 import Foundation
-public typealias YLJSONCodable = Codable
-public enum YLJSONResultType: String, YLJSONCodable {
+public typealias MMJSONCodable = Codable
+public enum MMJSONResultType: String, MMJSONCodable {
     case fail = "resultType::FAIL",
     success = "resultType::SUCCESS"
 }
 
-public struct YLJSONResult: YLJSONCodable {
+public struct MMJSONResult: MMJSONCodable {
     public var errorCode: Int = 0
     public var errorDesc: String = ""
     public var operateID: String = ""
-    public var type: YLJSONResultType = .fail
+    public var type: MMJSONResultType = .fail
     public init() {
     }
 }
-struct YLJSONBaseOutputModel<T: YLJSONCodable>: YLJSONCodable {
-    var result: YLJSONResult?
+struct MMJSONBaseOutputModel<T: MMJSONCodable>: MMJSONCodable {
+    var result: MMJSONResult?
     var body: T?
 }
-struct YLJSONBaseModel<T: Codable>: YLJSONCodable {
+struct MMJSONBaseModel<T: Codable>: MMJSONCodable {
     var method: String = ""
     var param: T?
 }
 
-@objc public class YLJSONRpcManager: NSObject {
-    @objc public static let shared = YLJSONRpcManager()
+@objc public class MMJSONRpcManager: NSObject {
+    @objc public static let shared = MMJSONRpcManager()
 
     @objc public var call: ((_ info: String?) -> String)?
     //配置数据源
@@ -57,7 +57,7 @@ struct YLJSONBaseModel<T: Codable>: YLJSONCodable {
     }
 }
 
-public class YLJSON {
+public class MMJSON {
 
     /// 基础方法
     ///
@@ -66,34 +66,34 @@ public class YLJSON {
     ///   - input: <#input description#>
     ///   - bodyClass: <#bodyClass description#>
     ///   - block: <#block description#>
-    public class func getDataSync <R: YLJSONCodable, T: YLJSONCodable> (name: String, input: R?, bodyClass: T.Type,
-                                                     block: @escaping (_ model: T?, _ result: YLJSONResult?) -> Void) {
+    public class func getDataSync <R: MMJSONCodable, T: MMJSONCodable> (name: String, input: R?, bodyClass: T.Type,
+                                                     block: @escaping (_ model: T?, _ result: MMJSONResult?) -> Void) {
         do {
             let encoder = JSONEncoder()
-            let inputData = try encoder.encode(YLJSONBaseModel(method: name, param: input))
+            let inputData = try encoder.encode(MMJSONBaseModel(method: name, param: input))
             let inputStr = String(data: inputData, encoding: String.Encoding.utf8)
 
-            guard let rpcBlock = YLJSONRpcManager.shared.call else {
-                YLLOG.error("未设置Rpc数据获取方法")
+            guard let rpcBlock = MMJSONRpcManager.shared.call else {
+                MMLOG.error("未设置Rpc数据获取方法")
                 return
             }
 #if DEBUG
-            YLLOG.info("DEBUG rpc Data: Input = \(String(describing: inputStr))")
+            MMLOG.info("DEBUG rpc Data: Input = \(String(describing: inputStr))")
 #endif
             let result = rpcBlock(inputStr)
 #if DEBUG
-            YLLOG.info("DEBUG rpc Data: Output = \(String(describing: result))")
+            MMLOG.info("DEBUG rpc Data: Output = \(String(describing: result))")
 #endif
             let decoder = JSONDecoder()
-            let output = try decoder.decode(YLJSONBaseOutputModel<T>.self, from: result.data(using: String.Encoding.utf8)!)
+            let output = try decoder.decode(MMJSONBaseOutputModel<T>.self, from: result.data(using: String.Encoding.utf8)!)
 
             if let outputResult = output.result {
                 block(output.body, outputResult)
                 if outputResult.type == .fail {
-                    YLLOG.error("RPC接口请求失败! outputResult = \(outputResult) \n inputStr = \(inputStr)")
+                    MMLOG.error("RPC接口请求失败! outputResult = \(outputResult) \n inputStr = \(inputStr)")
                 }
             } else {
-                var result = YLJSONResult()
+                var result = MMJSONResult()
                 result.type = .success
                 block(output.body, result)
             }
@@ -109,7 +109,7 @@ json数据解析失败,请检查以下原因:
 """
             print("error = \(error) \n\(err)")
             assert(false, "error = \(error)")
-            block(nil, YLJSONResult())
+            block(nil, MMJSONResult())
         }
     }
 }
@@ -119,7 +119,7 @@ extension String {
     ///
     /// - Parameter DataClass: model对象
     /// - Returns: 返回实例
-    func getJSONDataSync<T: YLJSONCodable> (_ DataClass: T.Type) ->T? {
+    func getJSONDataSync<T: MMJSONCodable> (_ DataClass: T.Type) ->T? {
         do {
             let decoder = JSONDecoder()
             let output = try decoder.decode(DataClass, from: self.data(using: String.Encoding.utf8) ?? Data())

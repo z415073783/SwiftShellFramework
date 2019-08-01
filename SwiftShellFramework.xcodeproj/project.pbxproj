@@ -14,14 +14,14 @@
 		48021DC12150DB22007C3089 /* sendMail.py in Resources */ = {isa = PBXBuildFile; fileRef = 48021DBF2150DB22007C3089 /* sendMail.py */; };
 		484B59D021EC252E00F6A1D8 /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = 484B59CF21EC252E00F6A1D8 /* Network.swift */; };
 		48765AAE21F0288C00ADAE0E /* MailManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48765AA821F0288C00ADAE0E /* MailManager.swift */; };
-		48765AAF21F0288C00ADAE0E /* YLJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48765AAA21F0288C00ADAE0E /* YLJSON.swift */; };
-		48765AB021F0288C00ADAE0E /* Notification+YLJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48765AAB21F0288C00ADAE0E /* Notification+YLJSON.swift */; };
+		48765AAF21F0288C00ADAE0E /* MMJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48765AAA21F0288C00ADAE0E /* MMJSON.swift */; };
+		48765AB021F0288C00ADAE0E /* Notification+MMJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48765AAB21F0288C00ADAE0E /* Notification+MMJSON.swift */; };
 		48765AB121F0288C00ADAE0E /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48765AAD21F0288C00ADAE0E /* Network.swift */; };
-		487C2D1E21D5BEC10022C9E5 /* ExitErrorCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 487C2D1D21D5BEC10022C9E5 /* ExitErrorCode.swift */; };
+		487C2D1E21D5BEC10022C9E5 /* MMExitErrorCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 487C2D1D21D5BEC10022C9E5 /* MMExitErrorCode.swift */; };
 		48A343CC20E9AE8F004649E8 /* SwiftShellFramework.h in Headers */ = {isa = PBXBuildFile; fileRef = 48A343CA20E9AE8F004649E8 /* SwiftShellFramework.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		48A343EC20E9B113004649E8 /* YLLog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48A343EA20E9B113004649E8 /* YLLog.swift */; };
-		48A343ED20E9B113004649E8 /* YLScript.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48A343EB20E9B113004649E8 /* YLScript.swift */; };
-		48A343FC20E9B4FB004649E8 /* YLWholeDefine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48A343FB20E9B4FB004649E8 /* YLWholeDefine.swift */; };
+		48A343EC20E9B113004649E8 /* MMLog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48A343EA20E9B113004649E8 /* MMLog.swift */; };
+		48A343ED20E9B113004649E8 /* MMScript.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48A343EB20E9B113004649E8 /* MMScript.swift */; };
+		48A343FC20E9B4FB004649E8 /* MMWholeDefine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48A343FB20E9B4FB004649E8 /* MMWholeDefine.swift */; };
 		48A3445420EC6E51004649E8 /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48A3445120EC6E51004649E8 /* String+Extension.swift */; };
 		48A3445520EC6E51004649E8 /* DateManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48A3445220EC6E51004649E8 /* DateManager.swift */; };
 		48A3445620EC6E51004649E8 /* NSObject+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48A3445320EC6E51004649E8 /* NSObject+Extension.swift */; };
@@ -48,17 +48,17 @@
 		48021DBF2150DB22007C3089 /* sendMail.py */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.python; path = sendMail.py; sourceTree = "<group>"; };
 		484B59CF21EC252E00F6A1D8 /* Network.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Network.swift; sourceTree = "<group>"; };
 		48765AA821F0288C00ADAE0E /* MailManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MailManager.swift; sourceTree = "<group>"; };
-		48765AAA21F0288C00ADAE0E /* YLJSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YLJSON.swift; sourceTree = "<group>"; };
-		48765AAB21F0288C00ADAE0E /* Notification+YLJSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Notification+YLJSON.swift"; sourceTree = "<group>"; };
+		48765AAA21F0288C00ADAE0E /* MMJSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MMJSON.swift; sourceTree = "<group>"; };
+		48765AAB21F0288C00ADAE0E /* Notification+MMJSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Notification+MMJSON.swift"; sourceTree = "<group>"; };
 		48765AAD21F0288C00ADAE0E /* Network.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Network.swift; sourceTree = "<group>"; };
 		487C2D0921D5B9C30022C9E5 /* ArchiveZip */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = ArchiveZip; sourceTree = BUILT_PRODUCTS_DIR; };
-		487C2D1D21D5BEC10022C9E5 /* ExitErrorCode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExitErrorCode.swift; sourceTree = "<group>"; };
+		487C2D1D21D5BEC10022C9E5 /* MMExitErrorCode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MMExitErrorCode.swift; sourceTree = "<group>"; };
 		48A343C720E9AE8F004649E8 /* SwiftShellFramework.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SwiftShellFramework.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		48A343CA20E9AE8F004649E8 /* SwiftShellFramework.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SwiftShellFramework.h; sourceTree = "<group>"; };
 		48A343CB20E9AE8F004649E8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		48A343EA20E9B113004649E8 /* YLLog.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YLLog.swift; sourceTree = "<group>"; };
-		48A343EB20E9B113004649E8 /* YLScript.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YLScript.swift; sourceTree = "<group>"; };
-		48A343FB20E9B4FB004649E8 /* YLWholeDefine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YLWholeDefine.swift; sourceTree = "<group>"; };
+		48A343EA20E9B113004649E8 /* MMLog.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MMLog.swift; sourceTree = "<group>"; };
+		48A343EB20E9B113004649E8 /* MMScript.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MMScript.swift; sourceTree = "<group>"; };
+		48A343FB20E9B4FB004649E8 /* MMWholeDefine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MMWholeDefine.swift; sourceTree = "<group>"; };
 		48A3445120EC6E51004649E8 /* String+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
 		48A3445220EC6E51004649E8 /* DateManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateManager.swift; sourceTree = "<group>"; };
 		48A3445320EC6E51004649E8 /* NSObject+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSObject+Extension.swift"; sourceTree = "<group>"; };
@@ -106,13 +106,13 @@
 			path = TargetManager/Network;
 			sourceTree = "<group>";
 		};
-		48765AA921F0288C00ADAE0E /* YLJSON */ = {
+		48765AA921F0288C00ADAE0E /* MMJSON */ = {
 			isa = PBXGroup;
 			children = (
-				48765AAA21F0288C00ADAE0E /* YLJSON.swift */,
-				48765AAB21F0288C00ADAE0E /* Notification+YLJSON.swift */,
+				48765AAA21F0288C00ADAE0E /* MMJSON.swift */,
+				48765AAB21F0288C00ADAE0E /* Notification+MMJSON.swift */,
 			);
-			path = YLJSON;
+			path = MMJSON;
 			sourceTree = "<group>";
 		};
 		48765AAC21F0288C00ADAE0E /* Network */ = {
@@ -159,7 +159,7 @@
 			children = (
 				48765AA821F0288C00ADAE0E /* MailManager.swift */,
 				48765AAC21F0288C00ADAE0E /* Network */,
-				48765AA921F0288C00ADAE0E /* YLJSON */,
+				48765AA921F0288C00ADAE0E /* MMJSON */,
 				48021DB92150DB12007C3089 /* FileControl.swift */,
 				48021D82214F7431007C3089 /* PgyerManager.swift */,
 				48D96134214104D600613A24 /* LogManager.swift */,
@@ -167,10 +167,10 @@
 				48A3445220EC6E51004649E8 /* DateManager.swift */,
 				48A3445320EC6E51004649E8 /* NSObject+Extension.swift */,
 				48A3445120EC6E51004649E8 /* String+Extension.swift */,
-				48A343EA20E9B113004649E8 /* YLLog.swift */,
-				48A343EB20E9B113004649E8 /* YLScript.swift */,
-				48A343FB20E9B4FB004649E8 /* YLWholeDefine.swift */,
-				487C2D1D21D5BEC10022C9E5 /* ExitErrorCode.swift */,
+				48A343EA20E9B113004649E8 /* MMLog.swift */,
+				48A343EB20E9B113004649E8 /* MMScript.swift */,
+				48A343FB20E9B4FB004649E8 /* MMWholeDefine.swift */,
+				487C2D1D21D5BEC10022C9E5 /* MMExitErrorCode.swift */,
 			);
 			path = TargetManager;
 			sourceTree = "<group>";
@@ -328,17 +328,17 @@
 				48021D83214F7431007C3089 /* PgyerManager.swift in Sources */,
 				48765AB121F0288C00ADAE0E /* Network.swift in Sources */,
 				484B59D021EC252E00F6A1D8 /* Network.swift in Sources */,
-				48765AB021F0288C00ADAE0E /* Notification+YLJSON.swift in Sources */,
+				48765AB021F0288C00ADAE0E /* Notification+MMJSON.swift in Sources */,
 				48A3445420EC6E51004649E8 /* String+Extension.swift in Sources */,
-				487C2D1E21D5BEC10022C9E5 /* ExitErrorCode.swift in Sources */,
+				487C2D1E21D5BEC10022C9E5 /* MMExitErrorCode.swift in Sources */,
 				48021DBB2150DB12007C3089 /* FileControl.swift in Sources */,
 				48A3445520EC6E51004649E8 /* DateManager.swift in Sources */,
-				48A343EC20E9B113004649E8 /* YLLog.swift in Sources */,
+				48A343EC20E9B113004649E8 /* MMLog.swift in Sources */,
 				48765AAE21F0288C00ADAE0E /* MailManager.swift in Sources */,
-				48A343ED20E9B113004649E8 /* YLScript.swift in Sources */,
-				48A343FC20E9B4FB004649E8 /* YLWholeDefine.swift in Sources */,
+				48A343ED20E9B113004649E8 /* MMScript.swift in Sources */,
+				48A343FC20E9B4FB004649E8 /* MMWholeDefine.swift in Sources */,
 				48AB4A34212582DE00BBC558 /* ProcessInfoControl.swift in Sources */,
-				48765AAF21F0288C00ADAE0E /* YLJSON.swift in Sources */,
+				48765AAF21F0288C00ADAE0E /* MMJSON.swift in Sources */,
 				48A3445620EC6E51004649E8 /* NSObject+Extension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

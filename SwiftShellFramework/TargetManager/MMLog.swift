@@ -1,5 +1,5 @@
 //
-//  YLLog.swift
+//  MMLOG.swift
 //  SwiftShellFramework
 //
 //  Created by zlm on 2018/7/2.
@@ -8,23 +8,23 @@
 
 import Foundation
 //import os
-public class YLLOG: NSObject {
+public class MMLOG: NSObject {
     public enum LogLevel: String {
         case log = "log", info = "info", error = "err", exception = "exception"
     }
-    public static let shared = YLLOG()
+    public static let shared = MMLOG()
     public var staticStr: StaticString = StaticString()
     public var logs: String = ""
     public class func info( _ closure: @autoclosure () -> String?) {
-        log(closure, level: YLLOG.LogLevel.info)
+        log(closure, level: MMLOG.LogLevel.info)
     }
 
     public class func error( _ closure: @autoclosure () -> String?) {
-        log(closure, level: YLLOG.LogLevel.error)
+        log(closure, level: MMLOG.LogLevel.error)
     }
 
     public class func except( _ closure: @autoclosure () -> String?) {
-        log(closure, level: YLLOG.LogLevel.exception)
+        log(closure, level: MMLOG.LogLevel.exception)
     }
     public class func log( _ closure: @autoclosure () -> String?) {
         let str = closure()

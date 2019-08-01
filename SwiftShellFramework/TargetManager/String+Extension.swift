@@ -41,7 +41,7 @@ public extension String {
                                                   range: NSMakeRange(0, self.count),
                                                   withTemplate: with)
         } catch {
-            YLLOG.error("正则表达式替换失败 pattern = \(pattern); with = \(with); self = \(self); error = \(error)")
+            MMLOG.error("正则表达式替换失败 pattern = \(pattern); with = \(with); self = \(self); error = \(error)")
             return nil
         }
     }

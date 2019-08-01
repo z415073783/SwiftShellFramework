@@ -1,5 +1,5 @@
 //
-//  Notification+YLJSON.swift
+//  Notification+MMJSON.swift
 //  YLCommonUtility
 //
 //  Created by zlm on 2018/8/20.
@@ -7,7 +7,7 @@
 //
 
 import Foundation
-struct YLJSONNotificationModel<T: YLJSONCodable> : YLJSONCodable {
+struct MMJSONNotificationModel<T: MMJSONCodable> : MMJSONCodable {
     var lparam: Int = 0
     var wparam: Int = 0
     var extraobject: T?
@@ -19,7 +19,7 @@ public extension Notification {
     ///
     /// - Parameter DataClass: 全部数据都要model化
     /// - Returns: 实例对象
-    public func getRpcDataSync<T: YLJSONCodable> (_ DataClass: T.Type) ->T? {
+    public func getRpcDataSync<T: MMJSONCodable> (_ DataClass: T.Type) ->T? {
         guard let value = object as? String else {
             return nil
         }
@@ -37,8 +37,8 @@ public extension Notification {
     ///
     /// - Parameter OutputClass: 只针对ExtraObject数据进行model化
     /// - Returns: 返回ExtraObject的Model实例
-    public func getRpcExtraDataSync<T: YLJSONCodable> (_ OutputClass: T.Type) ->T? {
-        let data = getRpcDataSync(YLJSONNotificationModel<T>.self)
+    public func getRpcExtraDataSync<T: MMJSONCodable> (_ OutputClass: T.Type) ->T? {
+        let data = getRpcDataSync(MMJSONNotificationModel<T>.self)
         return data?.extraobject
     }
 

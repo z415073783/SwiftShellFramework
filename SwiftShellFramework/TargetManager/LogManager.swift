@@ -34,7 +34,7 @@ public class LogManager {
             shared.logNamePath = path
             block(path)
         } catch  {
-            YLLOG.info("error = \(error)")
+            MMLOG.info("error = \(error)")
         }
     }
     public class func readLogFile() -> String {
@@ -45,7 +45,7 @@ public class LogManager {
             let data = try String(contentsOfFile: path, encoding: String.Encoding.utf8)
             return data
         } catch {
-            YLLOG.error("error = \(error)")
+            MMLOG.error("error = \(error)")
             return ""
         }
     }

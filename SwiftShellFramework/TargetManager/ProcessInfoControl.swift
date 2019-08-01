@@ -12,7 +12,7 @@ public extension ProcessInfo {
     public func getDictionary() -> [String: String] {
         var dic: [String:String] = [:]
         for item in arguments {
-//            YLLOG.info("item = \(item)")
+//            MMLOG.info("item = \(item)")
             if item.hasPrefix("-") {
                 let list = item.split("=")
                 if let first = list.first {
@@ -22,13 +22,13 @@ public extension ProcessInfo {
                 }
             }
         }
-        YLLOG.info("参数: = \(dic)")
+        MMLOG.info("参数: = \(dic)")
         return dic
     }
 
 //    public func isHelp(helpStr: String) -> Bool {
 //        for item in arguments {
-//            //            YLLOG.info("item = \(item)")
+//            //            MMLOG.info("item = \(item)")
 //            if item.hasPrefix("-") {
 //                if item == "-h" || item == "help" || item == "-help"  {
 //                    let detail = """
@@ -54,7 +54,7 @@ public extension ProcessInfo {
         """
         print(detail)
         for item in arguments {
-            //            YLLOG.info("item = \(item)")
+            //            MMLOG.info("item = \(item)")
             if item.hasPrefix("-") {
                 if item == "-h" || item == "help" || item == "-help"  {
                     exit(0)
