@@ -49,7 +49,10 @@ public class FileControl {
                 if changeRootPath == "./" {
                     changeRootPath = "."
                 }
-                let newPath = changeRootPath + "/" + item
+                if !changeRootPath.hasSuffix("/") {
+                    changeRootPath = changeRootPath + "/"
+                }
+                let newPath = changeRootPath + item
                 var isDir: ObjCBool = false
                 let isExist = FileManager.default.fileExists(atPath: newPath, isDirectory: &isDir)
 //                MMLOG.info("newPath = \(newPath), isDir = \(isDir) isExist = \(isExist) isSuffix = \(isSuffix)")
@@ -60,7 +63,8 @@ public class FileControl {
                         pathList.append(ProjectPathModel(name: item, path: changeRootPath))
                     }
                 }
-                if item == selectFile && isDir.boolValue == false {
+//                 && isDir.boolValue == false
+                if item == selectFile {
                     //获取到同名文件
                     MMLOG.info("获取到文件路径: \(newPath)")
                     pathList.append(ProjectPathModel(name: item, path: changeRootPath))
@@ -73,7 +77,7 @@ public class FileControl {
                 }
             }
 
-            let newRecursiveNum = recursiveNum > 99 ? recursiveNum : recursiveNum - 1
+            let newRecursiveNum = recursiveNum >= 99 ? recursiveNum : recursiveNum - 1
             if newRecursiveNum < 0 {
                 return pathList
             }
@@ -81,6 +85,9 @@ public class FileControl {
                 let subList = getFilePath(rootPath: subDir, selectFile: selectFile, isSuffix: isSuffix, onlyOne: onlyOne, recursiveNum: newRecursiveNum)
                 if subList.count > 0 {
                     pathList += subList
+                    if onlyOne == true {
+                        return pathList
+                    }
                 }
             }
 
@@ -235,26 +242,40 @@ public class FileControl {
 
     
     
-    /// 查找并替换文件
+    /// 从根路径查找指定文件并替换新文件
     ///
     /// - Parameters:
-    ///   - sourceFilePath: 源文件完整路径
-    ///   - sourceFilName: 源文件名
-    ///   - targetReplacePath: 替换目标路径
+    ///   - sourceFilePath: 源文件完整路径 需要替换的资源路径
+    ///   - sourceFilName: 源文件名 需要替换的资源名称
+    ///   - targetReplacePath: 需要替换的目标路径(可为根路径)
+    ///   - isCopy: 是否为copy 如果为false 则进行剪切操作
     /// - Returns:
-    public class func findAndReplaceFile(sourceFilePath:String, sourceFilName:String, targetReplacePath:String) -> Bool{
+    public class func findAndReplaceFile(sourceFilePath:String, sourceFilName:String, targetReplacePath:String, isCopy: Bool = true) -> Bool{
+        MMLOG.info("资源文件路径:\(sourceFilePath), 资源文件名称:\(sourceFilName), 需要替换对的目标文件:\(targetReplacePath)")
         let searchResult = FileControl.getFilePath(rootPath: targetReplacePath, selectFile: sourceFilName, isSuffix: false, onlyOne: true)
-        
         if let searchResult = searchResult.first {
             MMLOG.info(searchResult.name)
             MMLOG.info(searchResult.fullPath())
             do {
-                try FileManager.default.removeItem(atPath: searchResult.fullPath())
-                try FileManager.default.moveItem(atPath: sourceFilePath, toPath: searchResult.fullPath())
+                if FileManager.default.fileExists(atPath: sourceFilePath) {
+                    try FileManager.default.removeItem(atPath: searchResult.fullPath())
+                    if isCopy {
+                        try FileManager.default.copyItem(atPath: sourceFilePath, toPath: searchResult.fullPath())
+                    } else {
+                        try FileManager.default.moveItem(atPath: sourceFilePath, toPath: searchResult.fullPath())
+                    }
+                } else {
+                    MMLOG.error("源文件不存在,无法替换")
+                    return false
+                }
             }
             catch {
-                MMLOG.info("替换目标文件 sourceFilName = \(sourceFilName), targetReplacePath=\(searchResult.fullPath()) 错误error = \(error) ")
+                MMLOG.error("替换目标文件 sourceFilName = \(sourceFilName), targetReplacePath=\(searchResult.fullPath()) 错误error = \(error) ")
+                return false
             }
+        } else {
+            MMLOG.error("未搜索到指定文件")
+            return false
         }
         return true
     }

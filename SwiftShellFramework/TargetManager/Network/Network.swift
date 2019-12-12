@@ -26,7 +26,7 @@ class Network {
             guard let allUrl = "\(url)?\(dataStr)".addingPercentEncoding(withAllowedCharacters: CharacterSet.urlQueryAllowed) else {
                 return nil
             }
-            let result = YLScript.runScript(model: ScriptModel(path: kCurlPath, arguments: ["-i", allUrl], showOutData: true))
+            let result = MMScript.runScript(model: ScriptModel(path: kCurlPath, arguments: ["-i", allUrl], showOutData: true))
             let output = result.output
             return output
         }

@@ -16,15 +16,15 @@ public class MMLOG: NSObject {
     public var staticStr: StaticString = StaticString()
     public var logs: String = ""
     public class func info( _ closure: @autoclosure () -> String?) {
-        log(closure, level: MMLOG.LogLevel.info)
+        log(closure(), level: MMLOG.LogLevel.info)
     }
 
     public class func error( _ closure: @autoclosure () -> String?) {
-        log(closure, level: MMLOG.LogLevel.error)
+        log(closure(), level: MMLOG.LogLevel.error)
     }
 
     public class func except( _ closure: @autoclosure () -> String?) {
-        log(closure, level: MMLOG.LogLevel.exception)
+        log(closure(), level: MMLOG.LogLevel.exception)
     }
     public class func log( _ closure: @autoclosure () -> String?) {
         let str = closure()

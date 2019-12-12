@@ -28,5 +28,6 @@ public let kZipPath = "/usr/bin/zip"
 public let kRmPath = "/bin/rm"
 public let kOpenPath = "/usr/bin/open"
 //初始路径 需要根据脚本位置改为相对路径 "/Users/zlm/Documents/Odin-iOS-UC0524/shell"
-//let kShellPath = "/Users/zlm/Documents/Odin-iOS-UC0524/shell" //Bundle.main.bundlePath
+//public let kShellPath = "/Users/mac/Documents/GitSpace/migu-mnn-alldetect-clib/script"
+ //Bundle.main.bundlePath
 public let kShellPath = Bundle.main.bundlePath

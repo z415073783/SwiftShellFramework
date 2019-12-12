@@ -29,8 +29,8 @@ public struct ScriptResult {
 
 }
 public typealias ScriptOutput = String
-public class YLScript {
-    static let shared = YLScript()
+public class MMScript {
+    static let shared = MMScript()
     //设置执行目录
     @discardableResult public class func runScript(model: ScriptModel) -> ScriptResult {
 
